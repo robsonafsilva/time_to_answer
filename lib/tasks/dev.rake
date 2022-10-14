@@ -14,6 +14,7 @@ namespace :dev do
         show_spinner("Criando administradores extras...") {%x(rails dev:add_extra_admins)}
         show_spinner("Criando usuário default...") {%x(rails dev:add_default_user)}
         show_spinner("Cadastrando assuntos padrões...") {%x(rails dev:add_subjects)}
+        show_spinner("Cadastrando perguntas e respostas...") {%x(rails dev:answers_and_questions)}
         
       else
         puts "Você não está em ambiente de desenvolvimento." 
@@ -59,6 +60,19 @@ namespace :dev do
       Subject.create!(description: line.strip)
     end    
   end 
+
+  desc "Cadastra de perguntas e respostas"
+  task answers_and_questions: :environment do
+    Subject.all.each do |subject|
+      rand(5..10).times do |i|
+        Question.create!(
+          description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
+          subject: subject
+        )
+      end
+    end
+
+  end
   
   private
     def show_spinner(msg_start, msg_end = "Concluido")

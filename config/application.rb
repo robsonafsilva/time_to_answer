@@ -28,8 +28,12 @@ module TimeToAnswer
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    
+    # Forçando pt-br por aqui já que no locales.rb não vai
+    #config.i18n.default_locale = 'pt-BR'
 
     # Desabilita a geração de testes
     config.generators.system_tests = nil
   end
 end
+
