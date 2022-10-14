@@ -4,3 +4,10 @@
     editing: Editando %{model}
     question: Questões
     confirm_with: Você deseja realmente excluir [%{item}]
+    confirm_pass: Confirmar Senha
+    new_pass: Nova Senha
+    advise: Nunca compartilhe seus dados de acesso com outras pessoas.
+    button_save: Salvar
+    new_question: Digite a questão a ser cadastrada
+    question_subject_desc: Selecione o assunto/área da questão.
+    new_subject: Novo assunto/área

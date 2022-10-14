@@ -26,8 +26,7 @@
           <%= form_with(model: [:admins_backoffice, @subject ], local: true) do |form| %>
             <div class="form-group">
               <%= form.label :description %>
-              <%= form.text_field :description, class:"form-control", placeholder:"Entre com a descrição" %>
-              <small class="form-text text-muted">Cadastre a descrição a qual a questão se enquadra.</small>
+              <%= form.text_field :description, class:"form-control", placeholder: t('messages.new_subject') %>              
             </div>            
             <button type="submit" class="btn btn-primary">Salvar</button>
           <% end %>

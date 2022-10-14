@@ -26,15 +26,14 @@
           <%= form_with(model: [:admins_backoffice, @question ], local: true) do |form| %>
             <div class="form-group">
               <%= form.label :description %>
-              <%= form.text_area :description, class:"form-control", placeholder:"Entre com a Pergunta", rows:5 %>
-              <small class="form-text text-muted">Cadastre a descrição a qual a questão se enquadra.</small>
+              <%= form.text_area :description, class:"form-control", placeholder:t('messages.new_question'), rows:5 %>              
             </div>
             <div class="form-group">
               <%= form.label :subject_id %>
               <%= form.collection_select(:subject_id, @subjects, :id, :description, {}, { class:"form-control" })%>
-              <small class="form-text text-muted">Selecione a descrição a qual a questão se enquadra.</small>
+              <small class="form-text text-muted"><%= t('messages.question_subject_desc') %></small>
             </div>               
-            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="submit" class="btn btn-primary"><%= t('messages.button_save') %></button>
           <% end %>
         </div>
       </div>

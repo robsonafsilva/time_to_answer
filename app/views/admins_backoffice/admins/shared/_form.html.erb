@@ -27,18 +27,18 @@
             <div class="form-group">
               <%= form.label :email %>
               <%= form.text_field :email, class:"form-control", placeholder:"Entre com e-mail" %>
-              <small class="form-text text-muted">Nunca compartilhe seus dados de acesso com outras pessoas.</small>
+              <small class="form-text text-muted"><%=t('messages.advise')%></small>
             </div>
 
             <div class="form-group">
               <%= form.label :password %>
-              <%= form.password_field :password, class:"form-control", placeholder:"Nova Senha" %>
+              <%= form.password_field :password, class:"form-control", placeholder: t('messages.new_pass') %>
             </div>
             <div class="form-group">
               <%= form.label :password_confirmation %>
-              <%= form.password_field :password_confirmation, class:"form-control", placeholder:"Confirmar Senha" %>
+              <%= form.password_field :password_confirmation, class:"form-control", placeholder: t('messages.confirm_pass') %>
             </div>
-            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="submit" class="btn btn-primary"><%=t('messages.button_save')%></button>
           <% end %>
         </div>
       </div>
