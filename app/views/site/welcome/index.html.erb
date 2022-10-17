@@ -2,13 +2,25 @@
 <p>Find me in app/views/site/welcome/index.html.erb</p>
 
 <% if user_signed_in? %>
-  <p>Usuário ESTÁ LOGADO / <%= current_user.email %></p>  
+  <p>Usuário ESTÁ LOGADO /
+    <%= current_user.email %></p>
 <% else %>
-  <p>Usuário NÃO ESTÁ LOGADO</p>  
+  <p>Usuário NÃO ESTÁ LOGADO</p>
 <% end %>
 
 <% if admin_signed_in? %>
-  <p>Administrador ESTÁ LOGADO / <%= current_admin.email %></p>  
+  <p>Administrador ESTÁ LOGADO /
+    <%= current_admin.email %></p>
 <% else %>
   <p>Administrador NÃO ESTÁ LOGADO</p>
 <% end %>
+
+<ul>
+  <li>
+    <%= link_to "[Login ADM]", admins_backoffice_welcome_index_path %>
+  </li>
+  <br>
+  <li>
+    <%= link_to "[Login USER]", users_backoffice_welcome_index_path %>
+  </li>
+</ul>
