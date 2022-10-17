@@ -1,29 +1,88 @@
-<h2>Sign up</h2>
+<!DOCTYPE html>
+<html lang="en">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "admins/shared/error_messages", resource: resource %>
+  <head>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    >
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <title>Register</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <!-- Custom fonts for this template-->
+    <%= stylesheet_link_tag    'application' %>
+    <%= stylesheet_link_tag    'admins_devise' %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+  </head>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+  <body class="bg-gradient-primary">
 
-<%= render "admins/shared/links" %>
+    <div class="container">
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+            <div class="col-lg-7">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                </div>
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class:"user"}) do |f| %>
+                  <div class="text-center">
+                    <p><%= render "admins/shared/error_messages", resource: resource %></p>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-12">
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control form-control-user", placeholder:"Email Address" %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <%= f.password_field :password, autocomplete: "new-password", class:"form-control form-control-user", placeholder:"Password" %>
+                    </div>
+                    <div class="col-sm-6">
+                      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control form-control-user", placeholder:"Repeat Password" %>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <% if @minimum_password_length %>
+                      <p><em>(<%= @minimum_password_length %>
+                          characters minimum)</em></p>
+                    <% end %>
+                  </div>
+                  <%= f.submit "Register Account", class:"btn btn-primary btn-user btn-block" %>
+                  <hr>
+                  <!-- Login Social não implementado
+                  <a href="index.html" class="btn btn-google btn-user btn-block">
+                    <i class="fab fa-google fa-fw"></i>
+                    Register with Google
+                  </a>
+                  <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                    <i class="fab fa-facebook-f fa-fw"></i>
+                    Register with Facebook
+                  </a>
+                  -->
+                <% end %>
+
+                <div class="text-center">
+                  <%= render "admins/shared/links" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- JavaScript -->
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'admins_backoffice' %>
+  </body>
+</html>

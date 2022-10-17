@@ -13,7 +13,7 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
   end
 
   def create
-    @question = Question.new(params_admin)
+    @question = Question.new(params_question)
     if @question.save
       redirect_to admins_backoffice_questions_path, notice: "Questão cadastrada com sucesso!"
     else
@@ -25,7 +25,7 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
   end
 
   def update    
-    if @question.update(params_admin)
+    if @question.update(params_question)
       redirect_to admins_backoffice_questions_path, notice: "Questão atualizada com sucesso!"
     else
       render :edit 
@@ -41,8 +41,9 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
   end
 
   private
-  def params_admin
-    params.require(:question).permit(:description, :subject_id)
+  def params_question
+    params.require(:question).permit(:description, :subject_id,
+        answers_attributes: [:id, :description, :correct, :_destroy])
   end
 
   def set_question
