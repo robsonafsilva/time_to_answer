@@ -19,10 +19,11 @@ Rails.application.config.assets.precompile += %w( admins_backoffice.js
                                                   admins_devise.css
                                                   admins_devise.js
                                                   users_devise.css
+                                                  site.css
                                                   users_devise.js
                                                   users_backoffice.js
                                                   users_backoffice.css
-                                                  
+                                                  site.coffee
                                                  )
 
 # /lib/assets
@@ -30,6 +31,7 @@ Rails.application.config.assets.precompile += %w( sb-admin-2.js
                                                   sb-admin-2.css
                                                   custom.js
                                                   custom.css
+                                                  navbar-top.css
                                                   img.jpg
                                                   undraw_profile.svg
                                                 )

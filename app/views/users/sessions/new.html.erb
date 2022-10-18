@@ -1,26 +1,35 @@
-<h2>Log in - User</h2>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <h1>Log in - User</h1>
+  <div>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"Username" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div>
+    <%= f.password_field :password, autocomplete: "current-password", class:"form-control", placeholder:"Password" %>
   </div>
-
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end %>
+  <div class="clearfix"></div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div>
+    <%= f.submit "Log in", class:"btn btn-default btn btn-default submit" %>
+    <%= link_to "Lost your password?", new_user_password_path, class:"reset_pass" %>
+  </div>
+
+  <div class="clearfix"></div>
+  <div class="separator"></div>
+  <p class="change_link">New member ?
+    <%= link_to "Register", new_user_registration_path, class:"to_register" %>
+  </p>
+
+  <div class="clearfix"></div>
+  <br/>
+  <div>
+    <h1><i class="fa fa-paw"></i>Gentelella Alela!</h1>
+    <p>©<%= Time.new.year %>
+      All Rights Reserved. Gentelella Alela!</p>
   </div>
 <% end %>
-
-<%= render "users/shared/links" %>
