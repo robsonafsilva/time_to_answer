@@ -3,8 +3,6 @@ class Site::SearchController < SiteController
    # params[:term]
    # @questions = Question.all
    # as entrada lower e LIKE são comandos sql
-   @questions = Question.includes(:answers)
-                .where("lower(description) LIKE ?", "%#{params[:term].downcase}%")
-                .page(params[:page])
+   @questions = Question._search_(params[:page], params[:term])
   end
 end

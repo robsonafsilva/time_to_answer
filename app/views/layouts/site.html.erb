@@ -33,7 +33,7 @@
         box-shadow
       "
     >
-      <h5 class="my-0 mr-md-auto font-weight-normal">Time to Answer</h5>
+      <%= link_to "Time to Answer", root_path, class:"my-0 mr-md-auto font-weight-normal text-decoration-none text-reset" %>
       <%= form_with(url: site_search_path, local: true, method: :get, class:"form-inline my-2 my-lg-0 m-3" ) do |form| %>
         <%= form.text_field :term, class:"form-control mr-sm-2", placeholder:"Pesquisar" %>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
@@ -73,19 +73,17 @@
         with this Bootstrap example. It's built with default Bootstrap
         components and utilities with little customization.</p>
     </div>
-
     ------------------------------------->
     <div class="container">
       <main role="main" class="container">
         <div class="jumbotron">
-          <% if user_signed_in? %>
-            <p>Usuário:
-              <%= current_user.email %></p>
+          <% unless params[:term] %>
+            <h3>Ultimas perguntas cadastradas.</h3>
+          <% else %>
+            <h3>Resultado da busca por:
+              <span class="text-info"><%= params[:term] %></span></h3>
           <% end %>
-          <% if admin_signed_in? %>
-            <p>Admin:
-              <%= admin_user.email %></p>
-          <% end %>
+
         </div>
         <%= yield %>
       </main>
