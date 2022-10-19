@@ -34,6 +34,11 @@
       "
     >
       <h5 class="my-0 mr-md-auto font-weight-normal">Time to Answer</h5>
+      <%= form_with(url: site_search_path, local: true, method: :get, class:"form-inline my-2 my-lg-0 m-3" ) do |form| %>
+        <%= form.text_field :term, class:"form-control mr-sm-2", placeholder:"Pesquisar" %>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+      <% end %>
+
       <% unless user_signed_in? %>
         <nav class="my-2 my-md-0 mr-md-3">
           <%= link_to "Entrar", users_backoffice_welcome_index_path, class:"p-2 text-dark" %>
@@ -61,6 +66,7 @@
 
     </div>
     <!-------- FIM DA BARRA DE MENU ------------------------------------->
+    <!-------- FIM DA BARRA DE MENU
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1 class="display-4">Pricing</h1>
       <p class="lead">Quickly build an effective pricing table for your potential customers
@@ -68,11 +74,20 @@
         components and utilities with little customization.</p>
     </div>
 
+    ------------------------------------->
     <div class="container">
       <main role="main" class="container">
         <div class="jumbotron">
-          <%= yield %>
+          <% if user_signed_in? %>
+            <p>Usuário:
+              <%= current_user.email %></p>
+          <% end %>
+          <% if admin_signed_in? %>
+            <p>Admin:
+              <%= admin_user.email %></p>
+          <% end %>
         </div>
+        <%= yield %>
       </main>
     </div>
     <!-- Bootstrap core JavaScript
