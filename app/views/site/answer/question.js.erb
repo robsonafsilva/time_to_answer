@@ -1,0 +1,23 @@
+let element = document.getElementById('submit_<%= @answer.question_id %>'); 
+element.classList.remove('btn-outline-info');
+element.classList.remove('btn-outline-danger');
+element.classList.remove('btn-success'); 
+if (<%= @answer.correct %>) { 
+  element.classList.add('btn-success');
+  $.bootstrapGrowl('Você acertou!',{
+  type: 'success',
+  offset: {from: 'top', amount: 75},
+  align: 'right',
+  width: 'auto',
+  delay: 4000, allow_dismiss: true, stackup_spacing: 10 });
+} else {
+  element.classList.add('btn-outline-danger');
+  $.bootstrapGrowl('Você errou!', {
+    type: 'danger',
+    offset: {from: 'top', amount: 75},
+    align: 'right',
+    width: 'auto',
+    delay: 4000,
+    allow_dismiss: true,
+    stackup_spacing: 10 })
+  };
