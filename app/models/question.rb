@@ -7,6 +7,12 @@ class Question < ApplicationRecord
   paginates_per 5
 
   # scopes -> devem ser utilizado somente para criação de querys no banco de dados
+  scope :_search_subject_, -> (page, subject_id){ 
+    includes(:answers, :subject)
+    .where(subject_id: subject_id)
+    .page(page)
+  }
+
   scope :_search_, -> (page, term){ 
     includes(:answers)
     .where("lower(description) LIKE ?", "%#{term.downcase}%")
