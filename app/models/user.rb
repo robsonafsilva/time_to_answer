@@ -11,7 +11,7 @@ class User < ApplicationRecord
   #Callback
   after_create :set_statistic         
   
-  # Validtions
+  # Validations
   validates :first_name, presence: true, length: { minimum: 3}, on: :update  
          
   #Virtual Attribute
