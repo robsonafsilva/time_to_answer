@@ -33,6 +33,7 @@ Rails.application.config.assets.precompile += %w( sb-admin-2.js
                                                   custom.css
                                                   navbar-top.css
                                                   img.jpg
+                                                  img.png
                                                   undraw_profile.svg
                                                 )
 
