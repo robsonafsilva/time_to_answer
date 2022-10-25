@@ -10,9 +10,7 @@ class UsersBackoffice::ProfileController < UsersBackofficeController
     if @user.update(params_user)
       # sign_in(@user, bypass: true) --> deprecated
       bypass_sign_in(@user) #evita que o usuário seja redirecionado para o login após atualiazar a senha.
-      if params_user[:user_profile_attributes][:avatar]
-        redirect_to users_backoffice_welcome_index_path, notice: "Foto atualizada com sucesso!"
-      else
+      unless params_user[:user_profile_attributes][:avatar]     
         redirect_to users_backoffice_profile_path, notice: "Usuário atualizado com sucesso!"
       end
     else
