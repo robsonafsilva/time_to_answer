@@ -39,7 +39,7 @@ Rails.application.config.assets.precompile += %w( sb-admin-2.js
 
 # /vendor/assets
 Rails.application.config.assets.precompile += %w( jquery-2.2.3/dist/jquery.js
-                                                  css/animate.css/animate.css
+                                                  css/animate-css/animate.css
                                                   css/nprogress/nprogress.css
                                                 )
 
